@@ -1,4 +1,3 @@
-const { message } = require("antd");
 const express = require("express");
 const app = express();
 const Joi = require('joi');
@@ -37,12 +36,11 @@ app.post('/api/signup', (req, res) => {
         })
     }
 
-
     res.status(200).json({
         message: "data stored"
     });
 })
 
-app.listen(3000, () => {
+app.listen(5500, () => {
     console.log("App is listening on port:3000");
 })

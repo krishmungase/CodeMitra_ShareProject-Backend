@@ -31,6 +31,22 @@ const AuthController = {
         res.status(200).json({
             message: "data stored"
         });
+    },
+
+    async login(req, res) {
+        const { email, password } = req.body;
+
+        // validate email and password
+        if (!email || !password) {
+            return res.status(400).json({
+                success: false,
+                message: "Please provide email and password"
+            });
+        }
+
+        // logic to validate email and password
+        
+
     }
 }
 

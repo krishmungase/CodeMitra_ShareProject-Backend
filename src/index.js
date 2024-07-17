@@ -1,15 +1,18 @@
 const express = require("express");
+const router = require("./router");
+const initDb = require("./config/db");
+
 const app = express();
-const routes = require("./routes")
+
+initDb();
 
 app.use(express.json());
+app.use("/api", router);
 
-app.get('/', (req, res) => {
-    res.send("Welcome To CodeMitra YT - ShareProject")
-})
+app.get("/", (req, res) => {
+  return res.send(`<h1>Hello From Code Mitra YT</h1>`);
+});
 
-app.use('/api', routes)
+app.listen(5000, () => console.log("listening on port 5000"));
 
-app.listen(5500, () => {
-    console.log("App is listening on port:3000");
-})
+module.exports = app;
